@@ -69,11 +69,24 @@ allowFunctionsLog = 1;
 // 0 = Default behavior, available only in editor
 // 1 = Available in SP and for hosts / logged in admins
 // 2 = Available for everyone
-enableDebugConsole = 1; // 2 = dangerous in MP
+enableDebugConsole = 0; // 2 = dangerous in MP
 
 // NO NO NO
 allowFunctionsRecompile = 0;
 
-class CfgRemoteExecCommands {};
-
 #include "config.cpp"
+
+class CfgRemoteExec
+{
+    class Functions
+    {
+        mode = 1;
+        jip = 0;
+        class ExileServer_system_network_dispatchIncomingMessage     { allowedTargets=2; };
+    };
+    class Commands
+    {
+		mode=0;
+		jip=0;
+    };
+};
